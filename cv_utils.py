@@ -32,7 +32,7 @@ def show_sbs(images, spacer_width = 15, show_width=10, show_height=10):
             image = cv.cvtColor(image, cv.COLOR_GRAY2BGR)
         if image.shape[0] != height:
             padding = np.full((height - image.shape[0], image.shape[1], 3), 255, dtype=np.uint8)
-            padded = np.concatenate(image, padding, axis=0)
+            padded = np.concatenate((image, padding), axis=0)
             image_list.append(padded)
         else:
             image_list.append(image)
